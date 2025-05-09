@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import SolarGatorsImage from '../assets/images/Solar-Gators.png';
+import CogniSureImage from '../assets/images/cognisure.jpg'
+import OffshotImage from '../assets/images/offshot.png'
 
 const Experience = () => {
     const [activeTile, setActiveTile] = useState(null);
@@ -6,24 +9,30 @@ const Experience = () => {
     const experiences = [
         {
             id: 'experience1',
+            date: 'FEB 2025 - PRESENT',
             title: 'Electrical Systems Engineer',
             company: 'Solar Gators (Gainesville)',
             description: 'description',
-            image: '/images/solar-gators.png', 
+            image: SolarGatorsImage, 
+            highlightColor: '#eead4c',
         },
         {
             id: 'experience2',
+            date: 'MAY 2024 - AUG 2024',
             title: 'Frontend Software Engineer Intern',
             company: 'CogniSure Solutions (Remote)',
             description: 'description',
-            image: '/images/cognisure.png', 
+            image: CogniSureImage, 
+            highlightColor: '#4ceed3',
         },
         {
             id: 'experience3',
+            date: 'DEC 2022 - OCT 2024',
             title: 'YouTube Channel Owner',
             company: 'Offshot Content (Remote)',
             description: 'description',
-            image: '/images/offshot-content.png', 
+            image: OffshotImage,
+            highlightColor: '#ee644c',
         },
     ];
 
@@ -40,7 +49,11 @@ const Experience = () => {
                         key={exp.id}
                         className={`tile ${activeTile === exp.id ? 'active' : ''}`}
                         onClick={() => toggleTile(exp.id)}
+                        style={{
+                            backgroundColor: activeTile == exp.id ? exp.highlightColor : '#2a2a2a',
+                        }}
                     >
+                        <p id ="date">{exp.date}</p>
                         <img src={exp.image} alt={exp.company} />
                         <h3>{exp.title}</h3>
                         <p id="c-text">{exp.company}</p>
