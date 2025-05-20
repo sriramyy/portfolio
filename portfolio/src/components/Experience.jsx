@@ -50,7 +50,7 @@ const Experience = () => {
                         className={`tile ${activeTile === exp.id ? 'active' : ''}`}
                         onClick={() => toggleTile(exp.id)}
                         style={{
-                            backgroundColor: activeTile == exp.id ? exp.highlightColor : '#2a2a2a',
+                            backgroundColor: activeTile === exp.id ? exp.highlightColor : '#2a2a2a',
                         }}
                     >
                         <p id ="date">{exp.date}</p>

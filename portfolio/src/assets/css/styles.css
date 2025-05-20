@@ -51,16 +51,16 @@ body, html {
 
 /* Left Sidebar */
 .sidebar {
+    padding-top: 15px;
     background-color: #121212;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: sticky;
     top: 0;
-    height: 100vh;
+    height: 98vh;
     border-right: 2px solid #333;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .sidebar h1 {
@@ -206,6 +206,56 @@ h2 {
 
 .tile-content.open {
     display: block; /* Show content when open */
+}
+
+/* Project Tile */
+
+.project-tile {
+    background: #2a2a2a; /* Dark tile background */
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-tile h3 {
+    margin: 5px; 
+    font-size: 1.5em; 
+}
+
+.project-tile p {
+    margin: 10px;
+
+}
+
+.project-tile:hover {
+    background: #333333; 
+    transform: scale(1.05);
+}
+
+.project-tile:hover .project-preview-bg {
+    opacity: 1;
+    filter: blur(0px);
+}
+
+.project-preview-bg {
+    width: 100%;
+    height: 200px;
+    opacity: 0.5;
+    filter: blur(0.5px);
+    transition: opacity 0.35s, filter 0.35s;
+    display: block;
+    object-fit: cover;
+    object-position: center 40%;
 }
 
 /* Slide-down animation */
