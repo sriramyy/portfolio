@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
+
+// Pages/Sections
 import About from './components/About';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+// Icons
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+
+// Styles
 import './assets/css/styles.css';
 
 const App = () => {
@@ -30,6 +39,7 @@ const App = () => {
     return (
         <div className="app-container">
             <AnimatePresence>
+                { /* Landing Page */ }
                 {!showPortfolio && (
                     <motion.div
                         className="landing-screen"
@@ -93,7 +103,7 @@ const App = () => {
                     exit={{ y: '-100%' }}
                     transition={{ duration: 0.8 }}
                 >
-                    
+                    { /* Portfolio Sidebar */ }
                     <aside className="sidebar">
                         <h1>Sriram Yerramsetty</h1>
                         <nav>
@@ -104,6 +114,31 @@ const App = () => {
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </nav>
+                        <div className="sidebar-footer">
+                            <a
+                                className="sidebar-icons"
+                                href="https://www.linkedin.com/in/sriram-yerramsetty/"
+                                target="_blank"
+
+                            >
+                                <LinkedInIcon fontSize='large'/>
+                            </a>
+                            <a
+                                className="sidebar-icons"
+                                href="https://github.com/sriramyy"
+                                target="_blank"
+
+                            >
+                                <GitHubIcon fontSize='large'/>
+                            </a>
+                            <a
+                                className="sidebar-icons"
+                                href="mailto:sriram.yerramsetty1@gmail.com"
+                                target="_blank"
+                            >
+                                <EmailIcon fontSize='large'/>
+                            </a>
+                        </div>
                     </aside>
                     <main className="content">
                         <About />

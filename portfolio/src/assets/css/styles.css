@@ -91,6 +91,25 @@ body, html {
     color: #00bcd4;
 }
 
+.sidebar-footer {
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 16px;
+    text-align: center;
+    color: #888;
+}
+
+.sidebar-icons {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: inherit;
+    padding: 10px;
+}
+
+.sidebar-icons:hover {
+    color:#00bcd4;
+}
+
 /* Content Area */
 .content {
     overflow-y: auto;

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Skills = () => {
-    const skills = ['JavaScript', 'React', 'Python', 'Flask', 'HTML/CSS'];
+    const skills = ['C++','C','JavaScript','TypeScript','HTML/CSS','Python','PyTorch', 'React','Flask','STM32 Microcontrollers','Arduino Platform'];
 
     return (
         <section id="skills">

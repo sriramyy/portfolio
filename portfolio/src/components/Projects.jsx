@@ -4,6 +4,7 @@ import WikisixPreview from '../assets/images/preview_wikisix.png'
 import MLPreview from '../assets/images/preview_ml.png'
 import CSPreview from '../assets/images/preview_chipsplit.png'
 import PortfolioPreview from '../assets/images/preview_portfolio.png'
+import IDPreview from '../assets/images/preview_id.png'
 
 
 const Projects = () => {
@@ -19,29 +20,30 @@ const Projects = () => {
         { id: '2', 
             title: 'SFML Minesweeper Clone', 
             image: MinesweeperPreview,
-            description: '.', 
+            description: 'Implements a fully functional Minesweeper game with a SFML graphical interface. Features include tile reveal, flag placement, win/lose state indicators, a flag counter, debug mode, and test board configurations.', 
             link: 'https://github.com/sriramyy/SFML-Minesweeper-Clone' 
         },
         { id: '5', 
             title: 'Portfolio', 
             image: PortfolioPreview,
-            description: '.', 
+            description: 'Created this portfolio using React, JavaScript, HTML/CSS, and Material UI elements.', 
             link: 'https://github.com/sriramyy/portfolio' 
         },
         { id: '3', 
             title: 'Comparative ML Research', 
             image: MLPreview,
-            description: '', 
+            description: 'Implements and compares three machine learning models—Logistic Regression, SVM, and MLP—to predict next-day precipitation from real-world weather data, achieving up to 70% accuracy', 
             link: 'https://research-archive.org/index.php/rars/preprint/view/618' 
         },
         { id: '4', 
             title: 'ChipSplit',
             image: CSPreview, 
-            description: '.', 
+            description: 'Implements a post-game Poker settlement tool that uses recursion to minimize the number of money transfers between players with a user-friendly interface.', 
             link: 'https://github.com/sriramyy/ChipSplit-Poker' 
         },
         { id: '6', 
             title: 'ID AVL Tree', 
+            image: IDPreview,
             description: 'Implements an AVL tree that stores user names and IDs, supporting efficient insert, remove, and search operations, along with multiple traversal and in-order position-based removal commands.', 
             link: 'https://github.com/sriramyy/ID-AVL-Tree' 
         },
