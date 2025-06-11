@@ -5,12 +5,19 @@ import MLPreview from '../assets/images/preview_ml.png'
 import CSPreview from '../assets/images/preview_chipsplit.png'
 import PortfolioPreview from '../assets/images/preview_portfolio.png'
 import IDPreview from '../assets/images/preview_id.png'
+import GeneticPongMLPreview from '../assets/images/geneticpong.png'
 
 
 const Projects = () => {
     const [activeTile, setActiveTile] = useState(null);
 
     const projects = [
+        {   id: '7',
+            title: 'Genetic Pong ML',
+            image: GeneticPongMLPreview,
+            description: 'Developed an adaptive Pong agent using a genetic algorithm to optimize a perceptron model. The environment features real-time visualization and metric tracking for rapid model refinement',
+            link: 'https://github.com/sriramyy/genetic-pong-ml'  
+        },
         { id: '1', 
             title: 'WikiSix',
             image: WikisixPreview, 
