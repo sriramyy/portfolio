@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+import TEALabImage from '../assets/images/tea-lab.png';
 import SolarGatorsImage from '../assets/images/Solar-Gators.png';
 import CogniSureImage from '../assets/images/cognisure.jpg'
 import OffshotImage from '../assets/images/offshot.png'
@@ -8,11 +10,20 @@ const Experience = () => {
 
     const experiences = [
         {
+            id: 'experience0',
+            date: 'AUG 2025 - PRESENT',
+            title: 'Strategic AI Research Assistant',
+            company: 'TEA Lab (Gainesville)',
+            description: 'Engineering a defensive driving machine learning algorithm using Python and C++ to deter racing overtake attempts from adversarial agents utilizing a LIDAR-equipped F1/10 base and ROS2 Foxy middleware',
+            image: TEALabImage,
+            highlightColor: '#39cdd4ff',
+        },
+        {
             id: 'experience1',
             date: 'FEB 2025 - PRESENT',
             title: 'Electrical Systems Engineer',
             company: 'Solar Gators (Gainesville)',
-            description: 'description',
+            description: ' Co-designed electronic subsystems for a solar-powered race car alongside a 50+ member interdisciplinary team, contributing to the team’s qualification for the Formula Sun Grand Prix and American Solar Challenge',
             image: SolarGatorsImage, 
             highlightColor: '#eead4c',
         },
@@ -21,16 +32,16 @@ const Experience = () => {
             date: 'MAY 2024 - AUG 2024',
             title: 'Frontend Software Engineer Intern',
             company: 'CogniSure Solutions (Remote)',
-            description: 'description',
+            description: 'Worked on the mobile application development team using live agile environment tools and working on sign on components.',
             image: CogniSureImage, 
             highlightColor: '#4ceed3',
         },
         {
             id: 'experience3',
             date: 'DEC 2022 - OCT 2024',
-            title: 'YouTube Channel Owner',
+            title: 'Data-Driven YouTube Content Strategist',
             company: 'Offshot Content (Remote)',
-            description: 'description',
+            description: 'Engineered a custom data-driven content strategy model using PyTorch to analyze viewer engagement, identify content trends, and automate content strategy, optimizing video topics and release times to target niche gaming audiences',
             image: OffshotImage,
             highlightColor: '#ee644c',
         },
