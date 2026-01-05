@@ -109,6 +109,8 @@ const App = () => {
                         <nav>
                             <ul>
                                 <li><a href="#experience">Experience</a></li>
+                                <li><a href="#education">Education</a></li>
+                                <li><a href="#involvement-ventures">Involvement &amp; Ventures</a></li>
                                 <li><a href="#projects">Featured Projects</a></li>
                                 <li><a href="#skills">Skills</a></li>
                                 <li><a href="#contact">Contact</a></li>

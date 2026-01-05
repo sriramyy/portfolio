@@ -63,7 +63,7 @@ const Projects = () => {
     return (
         <section id="projects">
             <h2>Featured Projects</h2>
-            <div className="tile-container">
+            <div className="tile-container projects">
                 {projects.map(proj => (
                     <a
                         key={proj.id}
