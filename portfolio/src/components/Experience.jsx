@@ -6,6 +6,7 @@ import SolarGatorsImage from '../assets/images/Solar-Gators.png';
 import CogniSureImage from '../assets/images/cognisure.jpg';
 import OffshotImage from '../assets/images/offshot.png';
 import KBImage from '../assets/images/kb.png';
+import GARImage from '../assets/images/gar.png';
 
 const Experience = () => {
     const [activeTile, setActiveTile] = useState(null);
@@ -67,6 +68,16 @@ const Experience = () => {
     const involvementVentures = [
         {
             id: 'involvement0',
+            date: 'JAN 2026 - PRESENT',
+            title: 'Software/AI Lead',
+            company: 'Gator Autonomous Racing',
+            location: 'Gainesville, FL',
+            description: 'Serving as a software lead for UF\'s newest design team specializing in autonomous racing systems. Delivering technical lectures to 50+ students and providing hands-on mentorship in F1TENTH stack architecture, ROS framework development, and autonomous systems fundamentals.',
+            image: GARImage,
+            highlightColor: '#2e5a8f',
+        },
+        {
+            id: 'involvement1',
             date: 'FEB 2025 - PRESENT',
             title: 'Embedded Systems Engineer',
             company: 'Solar Gators',
@@ -76,7 +87,7 @@ const Experience = () => {
             highlightColor: '#eead4c',
         },
         {
-            id: 'involvement1',
+            id: 'involvement2',
             date: 'DEC 2022 - OCT 2024',
             title: 'Data-Driven Creator',
             company: 'Offshot Content',
