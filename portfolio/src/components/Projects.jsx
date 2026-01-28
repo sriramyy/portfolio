@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MinesweeperPreview from '../assets/images/preview_minesweeper.png'
 import WikisixPreview from '../assets/images/preview_wikisix.png'
 import MLPreview from '../assets/images/preview_ml.png'
@@ -9,8 +9,6 @@ import GeneticPongMLPreview from '../assets/images/geneticpong.png'
 
 
 const Projects = () => {
-    const [activeTile, setActiveTile] = useState(null);
-
     const projects = [
         {   id: '7',
             title: 'Genetic Pong ML',
