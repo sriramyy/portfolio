@@ -1,7 +1,7 @@
 import React from 'react';
 import { Chip, Box } from '@mui/material';
 import { 
-    SiCplusplus, SiC, SiPython, SiJavascript, SiHtml5, SiCss3, SiTypescript,
+    SiCplusplus, SiPython, SiJavascript, SiHtml5, SiTypescript,
     SiGit, SiGithub, SiAndroidstudio,
     SiReact, SiPytorch, SiTensorflow, SiFlask, SiFastapi, SiNumpy, SiRos, SiLinux,
     SiArduino, SiNvidia

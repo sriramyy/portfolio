@@ -56,10 +56,6 @@ const Projects = () => {
         },
     ];
 
-    const toggleTile = (id) => {
-        setActiveTile(activeTile === id ? null : id);
-    };
-
     return (
         <section id="projects">
             <h2>Featured Projects</h2>

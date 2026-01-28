@@ -121,7 +121,7 @@ const App = () => {
                                 className="sidebar-icons"
                                 href="https://www.linkedin.com/in/sriram-yerramsetty/"
                                 target="_blank"
-
+                                rel="noreferrer"
                             >
                                 <LinkedInIcon fontSize='large'/>
                             </a>
@@ -129,7 +129,7 @@ const App = () => {
                                 className="sidebar-icons"
                                 href="https://github.com/sriramyy"
                                 target="_blank"
-
+                                rel="noreferrer"
                             >
                                 <GitHubIcon fontSize='large'/>
                             </a>
@@ -137,6 +137,7 @@ const App = () => {
                                 className="sidebar-icons"
                                 href="mailto:sriram.yerramsetty1@gmail.com"
                                 target="_blank"
+                                rel="noreferrer"
                             >
                                 <EmailIcon fontSize='large'/>
                             </a>
