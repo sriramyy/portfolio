@@ -45,7 +45,7 @@ body, html {
     display: grid;
     grid-template-columns: 400px 1fr;
     height: 100vh;
-    overflow: auto;
+    overflow: hidden;
     background-color: #121212;
 }
 
@@ -57,9 +57,9 @@ body, html {
     flex-direction: column;
     align-items: center;
     top: 0;
-    height: 98vh;
-    border-right: 2px solid #333;
-    overflow-y: auto;
+    height: 100vh;
+    border-right: none;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -91,6 +91,11 @@ body, html {
     color: #00bcd4;
 }
 
+.sidebar nav a.active {
+    color: #00bcd4;
+    font-weight: 600;
+}
+
 .sidebar-footer {
     margin-top: auto;
     margin-bottom: 20px;
@@ -113,6 +118,7 @@ body, html {
 /* Content Area */
 .content {
     overflow-y: auto;
+    scroll-behavior: smooth;
     padding: 44px 20px 20px 20px;
     background-color: #121212;
 }
@@ -126,17 +132,76 @@ h2 {
     font-size: 2em;
     margin: 0 0 20px;
     color: #00bcd4; /* Accent color */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: font-weight 0.25s ease, color 0.25s ease;
 }
 
-/* About Me Section */
-.about-me {
+h2::after {
+    content: '';
+    height: 2px;
+    flex: 1;
+    background: linear-gradient(90deg, rgba(0, 188, 212, 0.8), rgba(0, 188, 212, 0));
+    transform-origin: left center;
+    transform: scaleX(0.2);
+    opacity: 0.35;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.active-section h2 {
+    font-weight: 800;
+}
+
+.active-section h2::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* About Section */
+.about-section {
     margin-bottom: 40px;
-    padding: 20px;
-    background: #1f1f1f; /* Darker background for the blurb */
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    color: #e0e0e0;
-    text-align: center;
+}
+
+.about-card {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 18px;
+    align-items: center;
+    background: #1f1f1f;
+    border: 1px solid #2b2b2b;
+    border-left: 4px solid #00bcd4;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+}
+
+.about-headshot {
+    width: 170px;
+    height: 170px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center 20%;
+    border: 1px solid #2f2f2f;
+}
+
+.about-content p {
+    margin: 0 0 12px 0;
+    color: #d9d9d9;
+    line-height: 1.65;
+    font-size: 1.02em;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 840px) {
+    .about-card {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
 }
 
 /* Tiles */
@@ -241,15 +306,133 @@ h2 {
     display: block; /* Show content when open */
 }
 
+/* Experience Timeline */
+.experience-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-left: 14px;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: #2f2f2f;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 5px;
+    top: 18px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid #121212;
+    box-shadow: 0 0 0 2px #2f2f2f;
+}
+
+.timeline-content {
+    background: #1f1f1f;
+    border: 1px solid #2b2b2b;
+    border-radius: 10px;
+    padding: 16px 18px;
+}
+
+.timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.timeline-header-text {
+    min-width: 0;
+}
+
+.timeline-logo {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 6px;
+    flex-shrink: 0;
+}
+
+.timeline-date {
+    margin: 0;
+    font-size: 0.78em;
+    letter-spacing: 1.4px;
+    color: #9f9f9f;
+    text-transform: uppercase;
+}
+
+.timeline-content h3 {
+    margin: 8px 0 4px 0;
+    font-size: 1.2em;
+}
+
+.timeline-company {
+    margin: 0;
+    font-size: 1em;
+    color: #d7d7d7;
+    font-weight: 600;
+}
+
+.timeline-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    color: #b8b8b8;
+    font-size: 0.92em;
+}
+
+.timeline-description {
+    margin: 10px 0 0 0;
+    line-height: 1.6;
+    color: #d6d6d6;
+}
+
+.timeline-result {
+    margin: 10px 0 0 0;
+    line-height: 1.6;
+    color: #dcdcdc;
+}
+
+.timeline-links {
+    margin: 8px 0 0 0;
+    line-height: 1.6;
+}
+
+.timeline-links a {
+    color: #7fc4ff;
+    text-decoration: none;
+}
+
+.timeline-links a:hover {
+    text-decoration: underline;
+}
+
 /* Project Tile */
 
 .project-tile {
-    background: #2a2a2a; /* Dark tile background */
+    background: #1f1f1f;
     padding-top: 15px;
     padding-bottom: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
+    border: 1px solid #2b2b2b;
     cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.25s ease, border-color 0.25s ease;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -271,12 +454,12 @@ h2 {
 }
 
 .project-tile:hover {
-    background: #333333; 
-    transform: scale(1.05);
+    transform: translateY(-3px);
+    border-color: #3d3d3d;
 }
 
 .project-tile:hover .project-preview-bg {
-    opacity: 1;
+    opacity: 0.95;
     filter: blur(0px);
 }
 
@@ -289,6 +472,64 @@ h2 {
     display: block;
     object-fit: cover;
     object-position: center 40%;
+}
+
+.project-tech-stack {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.tech-stack-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    opacity: 0.95;
+    padding: 4px;
+    border-radius: 8px;
+    background: #2a2a2a;
+}
+
+.skills-category-card {
+    background: #1f1f1f;
+    border: 1px solid #2b2b2b;
+    border-radius: 10px;
+    padding: 16px 16px 14px 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+}
+
+.contact-section {
+    margin-bottom: 20px;
+}
+
+.contact-card {
+    background: #1f1f1f;
+    border: 1px solid #2f2f2f;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 700px;
+}
+
+.contact-text {
+    margin: 0 0 12px 0;
+    color: #cfcfcf;
+    font-size: 1.05em;
+    line-height: 1.6;
+}
+
+.contact-email {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05em;
+}
+
+.contact-email:hover {
+    text-decoration: underline;
 }
 
 /* Slide-down animation */

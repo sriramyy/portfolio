@@ -20,9 +20,16 @@ import './assets/css/styles.css';
 
 const App = () => {
     const [showPortfolio, setShowPortfolio] = useState(false);
+    const [activeSection, setActiveSection] = useState('about');
+
+    const middleSectionIds = ['education', 'experience', 'involvement-ventures', 'research-publications', 'projects', 'skills'];
 
     const handleScrollDown = () => {
         setShowPortfolio(true);
+    };
+
+    const handleNavClick = (sectionId) => {
+        setActiveSection(sectionId);
     };
 
     useEffect(() => {
@@ -35,6 +42,84 @@ const App = () => {
         window.addEventListener('wheel', handleWheel);
         return () => window.removeEventListener('wheel', handleWheel);
     }, [showPortfolio]);
+
+    useEffect(() => {
+        if (!showPortfolio) {
+            return;
+        }
+
+        const contentRoot = document.querySelector('.content');
+
+        const updateEdgeSectionState = () => {
+            if (!contentRoot) {
+                return false;
+            }
+
+            const atTop = contentRoot.scrollTop <= 8;
+            const atBottom = contentRoot.scrollTop + contentRoot.clientHeight >= contentRoot.scrollHeight - 8;
+
+            if (atTop) {
+                setActiveSection('about');
+                return true;
+            }
+
+            if (atBottom) {
+                setActiveSection('contact');
+                return true;
+            }
+
+            return false;
+        };
+
+        const handleContentScroll = () => {
+            updateEdgeSectionState();
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (updateEdgeSectionState()) {
+                    return;
+                }
+
+                const visibleEntries = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((first, second) => Math.abs(first.boundingClientRect.top) - Math.abs(second.boundingClientRect.top));
+
+                if (visibleEntries.length > 0) {
+                    setActiveSection(visibleEntries[0].target.id);
+                }
+            },
+            {
+                root: contentRoot || null,
+                threshold: [0.1, 0.25, 0.5, 0.75],
+                rootMargin: '-12% 0px -45% 0px',
+            }
+        );
+
+        const sectionElements = middleSectionIds
+            .map((sectionId) => document.getElementById(sectionId))
+            .filter(Boolean);
+
+        sectionElements.forEach((sectionElement) => observer.observe(sectionElement));
+        contentRoot?.addEventListener('scroll', handleContentScroll);
+        updateEdgeSectionState();
+
+        return () => {
+            observer.disconnect();
+            contentRoot?.removeEventListener('scroll', handleContentScroll);
+        };
+    }, [showPortfolio]);
+
+    useEffect(() => {
+        if (!showPortfolio) {
+            return;
+        }
+
+        const sections = Array.from(document.querySelectorAll('.content section[id]'));
+        sections.forEach((sectionElement) => {
+            sectionElement.classList.toggle('active-section', sectionElement.id === activeSection);
+        });
+    }, [showPortfolio, activeSection]);
 
     return (
         <div className="app-container">
@@ -108,12 +193,14 @@ const App = () => {
                         <h1>Sriram Yerramsetty</h1>
                         <nav>
                             <ul>
-                                <li><a href="#experience">Experience</a></li>
-                                <li><a href="#education">Education</a></li>
-                                <li><a href="#involvement-ventures">Involvement &amp; Ventures</a></li>
-                                <li><a href="#projects">Featured Projects</a></li>
-                                <li><a href="#skills">Skills</a></li>
-                                <li><a href="#contact">Contact</a></li>
+                                <li><a href="#about" className={activeSection === 'about' ? 'active' : ''} onClick={() => handleNavClick('about')}>About Me</a></li>
+                                <li><a href="#education" className={activeSection === 'education' ? 'active' : ''} onClick={() => handleNavClick('education')}>Education</a></li>
+                                <li><a href="#experience" className={activeSection === 'experience' ? 'active' : ''} onClick={() => handleNavClick('experience')}>Experience</a></li>
+                                <li><a href="#involvement-ventures" className={activeSection === 'involvement-ventures' ? 'active' : ''} onClick={() => handleNavClick('involvement-ventures')}>Involvement &amp; Ventures</a></li>
+                                <li><a href="#research-publications" className={activeSection === 'research-publications' ? 'active' : ''} onClick={() => handleNavClick('research-publications')}>Research &amp; Publications</a></li>
+                                <li><a href="#projects" className={activeSection === 'projects' ? 'active' : ''} onClick={() => handleNavClick('projects')}>Featured Projects</a></li>
+                                <li><a href="#skills" className={activeSection === 'skills' ? 'active' : ''} onClick={() => handleNavClick('skills')}>Skills</a></li>
+                                <li><a href="#contact" className={activeSection === 'contact' ? 'active' : ''} onClick={() => handleNavClick('contact')}>Contact</a></li>
                             </ul>
                         </nav>
                         <div className="sidebar-footer">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 import TEALabImage from '../assets/images/tea-lab.png';
@@ -9,8 +9,6 @@ import KBImage from '../assets/images/kb.png';
 import GARImage from '../assets/images/gar.png';
 
 const Experience = () => {
-    const [activeTile, setActiveTile] = useState(null);
-
     const professionalExperiences = [
         {
             id: 'experience00',
@@ -52,7 +50,7 @@ const Experience = () => {
             company: 'University of Florida',
             gpa: 'N/A, Starting Spring 2026',
             description: 'Specialization in Machine Learning, advancing expertise in deep learning architectures, optimization algorithms, and practical deployment of machine learning systems.',
-            highlightColor: '#5ba3e0',
+            highlightColor: '#00bcd4',
         },
         {
             id: 'education0',
@@ -61,7 +59,7 @@ const Experience = () => {
             company: 'University of Florida',
             gpa: '4.0',
             description: 'Dean\'s List. Relevant Courses: Data Structures & Algorithms, Computer Organization, Advanced C++ Programming, Embedded Systems, Operating Systems, Digital Logic, Software Engineering.',
-            highlightColor: '#7fc4ff',
+            highlightColor: '#00bcd4',
         },
     ];
 
@@ -69,12 +67,12 @@ const Experience = () => {
         {
             id: 'involvement0',
             date: 'JAN 2026 - PRESENT',
-            title: 'Software/AI Lead',
+            title: 'Lead Software Engineer',
             company: 'Gator Autonomous Racing',
             location: 'Gainesville, FL',
-            description: 'Serving as a software lead for UF\'s newest design team specializing in autonomous racing systems. Delivering technical lectures to 50+ students and providing hands-on mentorship in F1TENTH stack architecture, ROS framework development, and autonomous systems fundamentals.',
+            description: 'Delivering technical lectures to 50+ students and providing hands-on mentorship in F1TENTH/Roboracer stack architecture, ROS framework development, and autonomous systems fundamentals. Showcasing real-time autonomous navigation demonstrations to 100+ campus event attendees and UF Leadership.',
             image: GARImage,
-            highlightColor: '#2e5a8f',
+            highlightColor: '#3a7ed1',
         },
         {
             id: 'involvement1',
@@ -84,7 +82,7 @@ const Experience = () => {
             location: 'Gainesville, FL',
             description: 'Designed schematics and PCB routing for a custom steering wheel component using Altium Designer, integrating STM32 microprocessors for reliable vehicle control. Developing embedded C firmware to validate CAN bus decoding, ensuring the real-time visualization of over 20 critical data points for driver feedback',
             image: SolarGatorsImage,
-            highlightColor: '#eead4c',
+            highlightColor: '#ffa51e',
         },
         {
             id: 'involvement2',
@@ -98,56 +96,85 @@ const Experience = () => {
         },
     ];
 
-    const toggleTile = (id) => {
-        setActiveTile(activeTile === id ? null : id);
-    };
+    const researchPublications = [
+        // {
+        //     id: 'research0',
+        //     date: '2026',
+        //     title: 'Drift Detection and Friction Estimation for Autonomous Racing',
+        //     company: 'Peer-Reviewed Publication | IEEE ITSC 2026',
+        //     description: 'Developed a model-free, computationally efficient approach using only IMU, LiDAR, and control actions to detect slip and estimate friction.',
+        //     result: 'Achieved 94% peak accuracy (6.09% MRE) across diverse track surfaces.',
+        //     links: [
+        //         { label: 'Paper', url: 'https://arxiv.org/abs/2509.15423' },
+        //         { label: 'GitHub', url: 'https://github.com/Trustworthy-Engineered-Autonomy-Lab/Online-Slip-Detection-Friction-Estimation' },
+        //     ],
+        //     highlightColor: '#5d8bc1',
+        // },
+        {
+            id: 'research1',
+            date: '2023',
+            title: 'Comparative Meteorological Machine Learning Research',
+            company: 'Research Archive | Preprint',
+            description: 'Engineered a Multilayer Perceptron (MLP) trained on 2,400+ features to identify non-linear meteorological patterns.',
+            result: 'Achieved 70% accuracy; garnered 110+ downloads on a Research Archive.',
+            links: [
+                { label: 'Preprint Paper', url: 'https://research-archive.org/index.php/rars/preprint/view/618' },
+            ],
+            highlightColor: '#608f7f',
+        },
+    ];
 
-    const renderSection = (sectionId, title, items) => {
-        const activeItem = items.find((item) => item.id === activeTile);
-
+    const renderTimelineSection = (sectionId, title, items) => {
         return (
             <section id={sectionId}>
                 <h2>{title}</h2>
-                <div className="tile-container">
+                <div className="experience-timeline">
                     {items.map((item) => (
-                        <div
-                            key={item.id}
-                            className={`tile ${activeTile === item.id ? 'active' : ''}`}
-                            onClick={() => toggleTile(item.id)}
-                            style={{
-                                backgroundColor: activeTile === item.id ? item.highlightColor : '#2a2a2a',
-                            }}
-                        >
-                            <p id="date">{item.date}</p>
-                            {item.image && <img src={item.image} alt={item.company} />}
-                            <h3>{item.title}</h3>
-                            <p id="c-text">{item.company}</p>
-                            {item.location && (
-                                <div className="location-row">
-                                    <LocationOnIcon style={{ fontSize: '16px', color: '#ffffff' }} />
-                                    <span>{item.location}</span>
+                        <article key={item.id} className="timeline-item">
+                            <span className="timeline-dot" style={{ backgroundColor: item.highlightColor }}></span>
+                            <div className="timeline-content" style={{ borderLeft: `4px solid ${item.highlightColor}` }}>
+                                <div className="timeline-header">
+                                    {item.image && <img className="timeline-logo" src={item.image} alt={item.company} />}
+                                    <div className="timeline-header-text">
+                                        <p className="timeline-date">{item.date}</p>
+                                        <h3 style={{ color: item.highlightColor }}>{item.title}</h3>
+                                        <p className="timeline-company">{item.company}</p>
+                                    </div>
                                 </div>
-                            )}
-                        </div>
+                                {item.gpa && <p className="timeline-result"><strong>GPA:</strong> {item.gpa}</p>}
+                                {item.location && (
+                                    <div className="timeline-location">
+                                        <LocationOnIcon style={{ fontSize: '16px', color: '#b8b8b8' }} />
+                                        <span>{item.location}</span>
+                                    </div>
+                                )}
+                                <p className="timeline-description">{item.description}</p>
+                                {item.result && <p className="timeline-result"><strong>Result:</strong> {item.result}</p>}
+                                {item.links && item.links.length > 0 && (
+                                    <p className="timeline-links">
+                                        <strong>Links:</strong>{' '}
+                                        {item.links.map((link, index) => (
+                                            <React.Fragment key={link.label}>
+                                                <a href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>
+                                                {index < item.links.length - 1 ? ' | ' : ''}
+                                            </React.Fragment>
+                                        ))}
+                                    </p>
+                                )}
+                            </div>
+                        </article>
                     ))}
                 </div>
-                {activeItem && (
-                    <div className="tile-content">
-                        <h3>{activeItem.title}</h3>
-                        <p><strong>{activeItem.company}</strong></p>
-                        {activeItem.gpa && <p><strong>GPA:</strong> {activeItem.gpa}</p>}
-                        <p>{activeItem.description}</p>
-                    </div>
-                )}
             </section>
         );
     };
 
     return (
         <>
-            {renderSection('experience', 'Experience', professionalExperiences)}
-            {renderSection('education', 'Education', education)}
-            {renderSection('involvement-ventures', 'Involvement & Ventures', involvementVentures)}
+            {renderTimelineSection('education', 'Education', education)}
+            {renderTimelineSection('experience', 'Experience', professionalExperiences)}
+            {renderTimelineSection('involvement-ventures', 'Involvement & Ventures', involvementVentures)}
+            {renderTimelineSection('research-publications', 'Research & Publications', researchPublications)}
         </>
     );
 };

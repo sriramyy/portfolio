@@ -1,10 +1,9 @@
 import React from 'react';
 import { Chip, Box } from '@mui/material';
 import { 
-    SiCplusplus, SiPython, SiJavascript, SiHtml5, SiTypescript,
-    SiGit, SiGithub, SiAndroidstudio,
-    SiReact, SiPytorch, SiTensorflow, SiFlask, SiFastapi, SiNumpy, SiRos, SiLinux,
-    SiArduino, SiNvidia
+    SiCplusplus, SiPython, SiTypescript,
+    SiGit, SiReact, SiPytorch, SiTensorflow, SiFastapi, SiNumpy, SiRos, SiLinux,
+    SiArduino, SiNvidia, SiEspressif
 } from 'react-icons/si';
 import CodeIcon from '@mui/icons-material/Code';
 import DeveloperBoardIcon from '@mui/icons-material/DeveloperBoard';
@@ -13,48 +12,46 @@ import MemoryIcon from '@mui/icons-material/Memory';
 const Skills = () => {
     const skillCategories = [
         {
-            category: 'Languages',
+            category: 'Languages/Tools',
+            accentColor: '#6ab0ff',
             skills: [
                 { name: 'C/C++', icon: <SiCplusplus /> },
                 { name: 'Python', icon: <SiPython /> },
-                { name: 'JavaScript', icon: <SiJavascript /> },
-                { name: 'HTML/CSS', icon: <SiHtml5 /> },
                 { name: 'TypeScript', icon: <SiTypescript /> },
-            ],
-        },
-        {
-            category: 'Developer Tools',
-            skills: [
+                { name: 'ROS2', icon: <SiRos /> },
                 { name: 'Git', icon: <SiGit /> },
-                { name: 'GitHub', icon: <SiGithub /> },
-                { name: 'STM32CubeIDE', icon: <MemoryIcon /> },
                 { name: 'Altium', icon: <DeveloperBoardIcon /> },
-                { name: 'Android Studio', icon: <SiAndroidstudio /> },
-                { name: 'Simulation Software', icon: <CodeIcon /> },
+                { name: 'STM32CubeIDE', icon: <MemoryIcon /> },
+                { name: 'FreeRTOS', icon: <CodeIcon /> },
+                { name: 'NVIDIA Jetson', icon: <SiNvidia /> },
+                { name: 'VHDL', icon: <CodeIcon /> },
+                { name: 'Verilog', icon: <CodeIcon /> },
             ],
         },
         {
-            category: 'Libraries/Frameworks',
+            category: 'AI & Frameworks',
+            accentColor: '#39cdd4',
             skills: [
-                { name: 'React', icon: <SiReact /> },
                 { name: 'PyTorch', icon: <SiPytorch /> },
                 { name: 'TensorFlow', icon: <SiTensorflow /> },
-                { name: 'Flask', icon: <SiFlask /> },
+                { name: 'React', icon: <SiReact /> },
                 { name: 'FastAPI', icon: <SiFastapi /> },
                 { name: 'NumPy', icon: <SiNumpy /> },
-                { name: 'ROS/ROS2', icon: <SiRos /> },
+                { name: 'LiDAR Processing', icon: <CodeIcon /> },
                 { name: 'UNIX/Linux CLI', icon: <SiLinux /> },
             ],
         },
         {
             category: 'Hardware',
+            accentColor: '#eead4c',
             skills: [
-                { name: 'STM32 Microcontroller', icon: <MemoryIcon /> },
+                { name: 'STM32', icon: <MemoryIcon /> },
                 { name: 'Arduino', icon: <SiArduino /> },
-                { name: 'NVIDIA Jetson', icon: <SiNvidia /> },
-                { name: 'LIDAR', icon: <CodeIcon /> },
+                { name: 'ESP32', icon: <SiEspressif /> },
                 { name: 'DE-10 (FPGA)', icon: <DeveloperBoardIcon /> },
-                { name: 'PCB Design', icon: <DeveloperBoardIcon /> },
+                { name: 'PCB Design (Schematics/Routing)', icon: <DeveloperBoardIcon /> },
+                { name: 'CAN Bus', icon: <CodeIcon /> },
+                { name: 'Signal Testing', icon: <CodeIcon /> },
             ],
         },
     ];
@@ -63,8 +60,12 @@ const Skills = () => {
         <section id="skills">
             <h2>Skills</h2>
             {skillCategories.map((categoryGroup) => (
-                <Box key={categoryGroup.category} sx={{ marginBottom: '24px' }}>
-                    <h3 style={{ color: '#e0e0e0', fontSize: '1.3em', marginBottom: '12px' }}>
+                <Box
+                    key={categoryGroup.category}
+                    className="skills-category-card"
+                    sx={{ marginBottom: '24px', borderLeft: `4px solid ${categoryGroup.accentColor}` }}
+                >
+                    <h3 style={{ color: categoryGroup.accentColor, fontSize: '1.3em', marginBottom: '12px' }}>
                         {categoryGroup.category}
                     </h3>
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
