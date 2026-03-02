@@ -18,11 +18,11 @@ import EmailIcon from '@mui/icons-material/Email';
 // Styles
 import './assets/css/styles.css';
 
+const MIDDLE_SECTION_IDS = ['education', 'experience', 'involvement-ventures', 'research-publications', 'projects', 'skills'];
+
 const App = () => {
     const [showPortfolio, setShowPortfolio] = useState(false);
     const [activeSection, setActiveSection] = useState('about');
-
-    const middleSectionIds = ['education', 'experience', 'involvement-ventures', 'research-publications', 'projects', 'skills'];
 
     const handleScrollDown = () => {
         setShowPortfolio(true);
@@ -96,7 +96,7 @@ const App = () => {
             }
         );
 
-        const sectionElements = middleSectionIds
+        const sectionElements = MIDDLE_SECTION_IDS
             .map((sectionId) => document.getElementById(sectionId))
             .filter(Boolean);
 
