@@ -97,19 +97,19 @@ const Experience = () => {
     ];
 
     const researchPublications = [
-        // {
-        //     id: 'research0',
-        //     date: '2026',
-        //     title: 'Drift Detection and Friction Estimation for Autonomous Racing',
-        //     company: 'Peer-Reviewed Publication | IEEE ITSC 2026',
-        //     description: 'Developed a model-free, computationally efficient approach using only IMU, LiDAR, and control actions to detect slip and estimate friction.',
-        //     result: 'Achieved 94% peak accuracy (6.09% MRE) across diverse track surfaces.',
-        //     links: [
-        //         { label: 'Paper', url: 'https://arxiv.org/abs/2509.15423' },
-        //         { label: 'GitHub', url: 'https://github.com/Trustworthy-Engineered-Autonomy-Lab/Online-Slip-Detection-Friction-Estimation' },
-        //     ],
-        //     highlightColor: '#5d8bc1',
-        // },
+        {
+            id: 'research0',
+            date: '2026',
+            title: 'Drift Detection and Friction Estimation for Autonomous Racing',
+            company: 'Peer-Reviewed Publication | IEEE ITSC 2026',
+            description: 'Developed a model-free, computationally efficient approach using only IMU, LiDAR, and control actions to detect slip and estimate friction.',
+            result: 'Achieved 94% peak accuracy (6.09% MRE) across diverse track surfaces.',
+            links: [
+                { label: 'Paper', url: 'https://arxiv.org/abs/2509.15423' },
+                { label: 'GitHub', url: 'https://github.com/Trustworthy-Engineered-Autonomy-Lab/Online-Slip-Detection-Friction-Estimation' },
+            ],
+            highlightColor: '#5d8bc1',
+        },
         {
             id: 'research1',
             date: '2023',
