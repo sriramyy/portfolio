@@ -101,7 +101,7 @@ const Experience = () => {
             id: 'research0',
             date: '2026',
             title: 'Drift Detection and Friction Estimation for Autonomous Racing',
-            company: 'Peer-Reviewed Publication | IEEE ITSC 2026',
+            company: 'Publication',
             description: 'Developed a model-free, computationally efficient approach using only IMU, LiDAR, and control actions to detect slip and estimate friction.',
             result: 'Achieved 94% peak accuracy (6.09% MRE) across diverse track surfaces.',
             links: [
