@@ -114,9 +114,9 @@ const Experience = () => {
             id: 'research1',
             date: '2023',
             title: 'Comparative Meteorological Machine Learning Research',
-            company: 'Research Archive | Preprint',
+            company: 'Preprint | Research Archive of Rising Scholars',
             description: 'Engineered a Multilayer Perceptron (MLP) trained on 2,400+ features to identify non-linear meteorological patterns.',
-            result: 'Achieved 70% accuracy; garnered 110+ downloads on a Research Archive.',
+            result: 'Achieved 70% accuracy; garnered 130+ downloads on a Research Archive.',
             links: [
                 { label: 'Preprint Paper', url: 'https://research-archive.org/index.php/rars/preprint/view/618' },
             ],
