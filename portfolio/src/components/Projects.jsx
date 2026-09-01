@@ -12,6 +12,19 @@ import GeneticPongMLPreview from '../assets/images/geneticpong.png'
 
 const Projects = () => {
     const projects = [
+        {
+            id: '8',
+            title: 'KarmanCore',
+            image: null, // Add preview import later
+            description: 'Designed an embedded telemetry dashboard bridging flight and space simulators to an ESP32. Implements a custom binary protocol with packet sync over 921.6k baud for sub-10ms latency, backed by a non-blocking event-driven C++ HAL.',
+            link: 'https://github.com/sriramyy/KarmanCore',
+            accentColor: '#38bdf8', // Aerospace cyan/blue accent
+            techStack: [
+                { name: 'C++', icon: <SiCplusplus /> },
+                { name: 'Python', icon: <SiPython /> },
+                { name: 'ESP32 / Embedded', icon: <MemoryIcon fontSize="small" /> },
+            ],
+        },
         {   id: '7',
             title: 'Genetic Pong ML',
             image: GeneticPongMLPreview,
