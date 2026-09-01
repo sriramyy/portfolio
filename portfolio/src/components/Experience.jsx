@@ -45,10 +45,10 @@ const Experience = () => {
     const education = [
         {
             id: 'education1',
-            date: 'Expected DECEMBER 2028',
+            date: 'Started Spring 2026, Expected DECEMBER 2028',
             title: 'M.S. Computer Engineering (Combined Degree Program)',
             company: 'University of Florida',
-            gpa: 'N/A, Starting Spring 2026',
+            gpa: '4.0',
             description: 'Specialization in Machine Learning, advancing expertise in deep learning architectures, optimization algorithms, and practical deployment of machine learning systems.',
             highlightColor: '#00bcd4',
         },
